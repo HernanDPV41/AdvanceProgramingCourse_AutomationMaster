@@ -19,6 +19,14 @@ namespace EquipmentMonitoring.Domain.Entities
 
         #endregion
 
+        /// <summary>
+        /// Requerido por EF.
+        /// </summary>
+        private HMI()
+        {
+
+        }
+
         public HMI(
             Guid id,
             NetworkAddress address,

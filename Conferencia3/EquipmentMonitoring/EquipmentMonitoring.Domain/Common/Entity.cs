@@ -21,6 +21,11 @@ namespace EquipmentMonitoring.Domain.Common
 
         #endregion
 
+        /// <summary>
+        /// Requerido por EF.
+        /// </summary>
+        protected Entity() { }
+
         protected Entity(
             Guid id)
         {

@@ -9,6 +9,10 @@ namespace EquipmentMonitoring.Domain.Entities
     public class PLC
         : AutomationDevice
     {
+        /// <summary>
+        /// Requerido por EF.
+        /// </summary>
+        private PLC() { }
 
         public PLC(
             Guid id,

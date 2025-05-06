@@ -1,9 +1,4 @@
 ﻿using EquipmentMonitoring.Domain.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EquipmentMonitoring.Domain.Entities
 {
@@ -17,17 +12,32 @@ namespace EquipmentMonitoring.Domain.Entities
         #region Properties
 
         /// <summary>
+        /// Identificador de la unidad a la que pertenece la operación.
+        /// </summary>
+        public Guid UnitId { get; }
+
+        /// <summary>
         /// Nombre de la operación.
         /// </summary>
         public string Name { get; }
 
         #endregion
 
+        /// <summary>
+        /// Requerido por EF.
+        /// </summary>
+        private Operation()
+        {
+            
+        }
+
         public Operation(
-            Guid id, 
+            Guid id,
+            Guid unitId,
             string name)
             : base(id)
         {
+            UnitId = unitId;
             Name = name;
         }
     }

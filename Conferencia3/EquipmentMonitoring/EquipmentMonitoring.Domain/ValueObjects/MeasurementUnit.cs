@@ -21,6 +21,11 @@ namespace EquipmentMonitoring.Domain.ValueObjects
         public string Symbol { get; }
         #endregion
 
+        /// <summary>
+        /// Requerido por EF.
+        /// </summary>
+        private MeasurementUnit() { }
+
         public MeasurementUnit(
             PhysicalMagnitude physicalMagnitude,
             string symbol)

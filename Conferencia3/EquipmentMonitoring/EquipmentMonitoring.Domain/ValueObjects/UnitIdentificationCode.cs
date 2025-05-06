@@ -14,6 +14,11 @@ namespace EquipmentMonitoring.Domain.ValueObjects
     {
         public string Value { get; }
 
+        /// <summary>
+        /// Requerido por EF.
+        /// </summary>
+        private UnitIdentificationCode() { }
+
         private UnitIdentificationCode(
             string value)
         {

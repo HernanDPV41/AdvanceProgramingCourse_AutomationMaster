@@ -1,10 +1,5 @@
 ﻿using EquipmentMonitoring.Domain.Common;
 using EquipmentMonitoring.Domain.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EquipmentMonitoring.Domain.Entities
 {
@@ -17,6 +12,11 @@ namespace EquipmentMonitoring.Domain.Entities
         #region Properties
 
         /// <summary>
+        /// Identificador de la unidad a la que pertenece la variable.
+        /// </summary>
+        public Guid UnitId { get; }
+
+        /// <summary>
         /// Nombre de la variable.
         /// </summary>
         public string Name { get; set; }
@@ -24,7 +24,7 @@ namespace EquipmentMonitoring.Domain.Entities
         /// <summary>
         /// Unidad de medida física de la variable.
         /// </summary>
-        public string MeasurementUnit { get; }
+        public MeasurementUnit MeasurementUnit { get; }
 
         /// <summary>
         /// Punto de comunicación para obtener el valor de la variable.
@@ -33,13 +33,20 @@ namespace EquipmentMonitoring.Domain.Entities
 
         #endregion
 
+        /// <summary>
+        /// Requerido por EF.
+        /// </summary>
+        private Variable() { }
+
         public Variable(
             Guid id,
-            string name, 
-            string measurementUnit, 
+            Guid unitId,
+            string name,
+            MeasurementUnit measurementUnit,
             CommunicationNode valueNode)
             : base(id)
         {
+            UnitId = unitId;
             Name = name;
             MeasurementUnit = measurementUnit;
             ValueNode = valueNode;

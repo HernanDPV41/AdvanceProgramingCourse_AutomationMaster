@@ -42,8 +42,21 @@ namespace EquipmentMonitoring.Domain.Entities
         /// Operación activa, <see langword="null"/> si no hay ninguna activa.
         /// </summary>
         public Operation? ActiveOperation { get; private set; } = null;
+        /// <summary>
+        /// Identificador de la operación activa.
+        /// </summary>
+        public Guid? ActiveOperationId { get; private set; } = null;
+        /// <summary>
+        /// Dispositivos de automatización asociados a la unidad.
+        /// </summary>
+        public List<AutomationDevice> AutomationDevices { get; private set; } = new();
 
         #endregion
+
+        /// <summary>
+        /// Requerido por EF.
+        /// </summary>
+        private Unit() { }
 
         public Unit(
             Guid id,

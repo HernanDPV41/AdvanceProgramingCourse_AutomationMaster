@@ -23,6 +23,11 @@ namespace EquipmentMonitoring.Domain.ValueObjects
         public int Port { get; }
         #endregion
 
+        /// <summary>
+        /// Requerido por EF.
+        /// </summary>
+        private NetworkAddress() { }
+
         private NetworkAddress(
             string iPAddress,
             int port)

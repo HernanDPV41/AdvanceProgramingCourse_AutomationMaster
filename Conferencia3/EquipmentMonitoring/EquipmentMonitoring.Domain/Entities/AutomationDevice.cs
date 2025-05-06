@@ -27,7 +27,20 @@ namespace EquipmentMonitoring.Domain.Entities
         /// </summary>
         public EquipmentState State { get; private set; }
 
+        /// <summary>
+        /// Unidades asociadas a dispositivos de automatización.
+        /// </summary>
+        public List<Unit> Units { get; private set; } = new();
+
         #endregion
+
+        /// <summary>
+        /// Requerido por EF.
+        /// </summary>
+        protected AutomationDevice()
+        {
+
+        }
 
         public AutomationDevice(
             Guid id,

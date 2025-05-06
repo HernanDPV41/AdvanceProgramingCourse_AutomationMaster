@@ -27,6 +27,11 @@ namespace EquipmentMonitoring.Domain.ValueObjects
 
         #endregion
 
+        /// <summary>
+        /// Requerido por EF.
+        /// </summary>
+        private CommunicationNode() { }
+
         public CommunicationNode(
             int registerPosition,
             int registerLength)
