@@ -1,8 +1,11 @@
 ﻿using EquipmentMonitoring.Domain.Entities;
 using EquipmentMonitoring.Domain.Types;
 using EquipmentMonitoring.Domain.ValueObjects;
+using EquipmentMonitoring.GrpcProtos;
 using EquipmentMonitoring.Persistence.Contexts;
 using EquipmentMonitoring.Persistence.Repositories.Managers;
+using Grpc.Core;
+using Grpc.Net.Client;
 using Microsoft.EntityFrameworkCore;
 
 namespace EquipmentMonitoring.ConsoleApp
@@ -11,33 +14,33 @@ namespace EquipmentMonitoring.ConsoleApp
     {
         static void Main(string[] args)
         {
-            AppDbContext appDbContext = new AppDbContext(
-                "User ID =postgres;Password=qwerty;Server=localhost;Port=5432;" +
-                "Database=EquipmentMonitoringDB;Include Error Detail=true;");
-            
-            AppRepositoryManager repositoryManager = new AppRepositoryManager(appDbContext);
+            Console.WriteLine("Presione una tecla para continuar.");
+            Console.ReadKey();
 
-            var unit = new Unit(Guid.NewGuid(), "Unidad1", UnitIdentificationCode.Create("uni-123").Value!);
-            var task = repositoryManager.Unit.AddAsync(unit);
-            task.Wait();
+            var httpHandler = new HttpClientHandler();
+            httpHandler.ServerCertificateCustomValidationCallback =
+                HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
 
-            var variableId = Guid.NewGuid();
-            task = repositoryManager.Variable.AddAsync(
-                new Variable(
-                    variableId,
-                    unit.Id, 
-                    "Variable1", 
-                    new MeasurementUnit(PhysicalMagnitude.Temperature,"°C"), 
-                    new CommunicationNode(1,2)));
-            task.Wait();
+            var channel = GrpcChannel.ForAddress(
+                "http://localhost:5219",
+                new GrpcChannelOptions { HttpHandler = httpHandler });
 
-            task = repositoryManager.UnitOfWork.SaveChangesAsync(new CancellationToken());
+            if(channel is null)
+            {
+                Console.WriteLine("Cannot connect");
+                return;
+            }
 
-            task.Wait();
+            var client = new GrpcProtos.Unit.UnitClient(channel);
 
-            task = repositoryManager.Variable.GetByIdAsync(variableId);
-
-            task.Wait();
+            try
+            {
+                client.CreateUnit(new UnitCreationDTO() { Name = "Unit1", Code = "CDF-124" });
+            }
+            catch (RpcException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

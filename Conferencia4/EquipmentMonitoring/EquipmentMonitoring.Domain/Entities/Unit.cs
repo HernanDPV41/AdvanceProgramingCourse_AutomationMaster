@@ -1,11 +1,9 @@
 ﻿using EquipmentMonitoring.Domain.Common;
 using EquipmentMonitoring.Domain.Entities.Abstract;
-using EquipmentMonitoring.Domain.Errors;
 using EquipmentMonitoring.Domain.Rules;
 using EquipmentMonitoring.Domain.Types;
 using EquipmentMonitoring.Domain.ValueObjects;
 using FluentResults;
-using Microsoft.VisualBasic;
 
 namespace EquipmentMonitoring.Domain.Entities
 {
@@ -81,7 +79,7 @@ namespace EquipmentMonitoring.Domain.Entities
                 new UnitCannotExecuteOperationIfNotInIdleState(State));
             if (result.IsFailed)
                 return result;
-                
+
             ActiveOperation = operation;
             State = EquipmentState.Executing;
             return Result.Ok();

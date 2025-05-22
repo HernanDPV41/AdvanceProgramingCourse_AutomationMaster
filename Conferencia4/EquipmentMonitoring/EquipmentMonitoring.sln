@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquipmentMonitoring.Console
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquipmentMonitoring.Application", "EquipmentMonitoring.Application\EquipmentMonitoring.Application.csproj", "{DC610FC6-EC45-44A5-A7FE-90575C932841}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquipmentMonitoring.API", "EquipmentMonitoring.API\EquipmentMonitoring.API.csproj", "{F587F827-D264-423A-B20F-84CB64FFF909}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquipmentMonitoring.GrpcProtos", "EquipmentMonitoring.GrpcProtos\EquipmentMonitoring.GrpcProtos.csproj", "{4CE4D369-B065-48FB-8111-6421EDE187E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{DC610FC6-EC45-44A5-A7FE-90575C932841}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC610FC6-EC45-44A5-A7FE-90575C932841}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC610FC6-EC45-44A5-A7FE-90575C932841}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F587F827-D264-423A-B20F-84CB64FFF909}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F587F827-D264-423A-B20F-84CB64FFF909}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F587F827-D264-423A-B20F-84CB64FFF909}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F587F827-D264-423A-B20F-84CB64FFF909}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CE4D369-B065-48FB-8111-6421EDE187E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CE4D369-B065-48FB-8111-6421EDE187E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CE4D369-B065-48FB-8111-6421EDE187E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CE4D369-B065-48FB-8111-6421EDE187E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

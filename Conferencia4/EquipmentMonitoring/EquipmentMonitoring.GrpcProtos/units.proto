@@ -1,0 +1,45 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "EquipmentMonitoring.GrpcProtos";
+
+package GrpcProtos;
+
+import "google/protobuf/empty.proto";
+import "Common.proto";
+
+service Unit{
+	rpc CreateUnit (UnitCreationDTO) returns (google.protobuf.Empty);
+	rpc GetAllUnits (GetRequestDTO) returns (UnitsDTO);
+	rpc UpdateUnit (UnitDTO) returns (google.protobuf.Empty);
+	rpc AddAutomationDeviceToUnit (AutomationDeviceUnitRelationDTO) returns (google.protobuf.Empty);
+	rpc RemoveAutomationDeviceFromUnit (AutomationDeviceUnitRelationDTO) returns (google.protobuf.Empty);
+	rpc DeleteUnit (DeleteRequestDTO) returns (google.protobuf.Empty);
+}
+
+message UnitCreationDTO{
+	string name = 1;
+	string code = 2;
+}
+
+message UnitDTO{
+	string id = 1;
+	string name = 2;
+	string code = 3;
+	string activeOperationId = 4;
+	EquipmentStateDTO Sate = 5;
+}
+
+message UnitsDTO{
+	repeated UnitDTO Items = 1;
+}
+
+message NullableUnitDTO{
+	oneof kind{
+		UnitDTO unit = 1;
+	}
+}
+
+message AutomationDeviceUnitRelationDTO{
+	string UnitId = 1;
+	string AutomationDeviceId = 2;
+}

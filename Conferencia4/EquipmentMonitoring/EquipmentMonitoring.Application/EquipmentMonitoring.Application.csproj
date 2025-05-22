@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,8 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\" />
-    <Folder Include="Queries\" />
+    <Folder Include="Commands\Units\DeleteUnit\" />
+    <Folder Include="Commands\Units\AddAutomationDeviceToUnit\" />
+    <Folder Include="Commands\Units\RemoveAutomationDeviceFromUnit\" />
+    <Folder Include="Commands\Units\UpdateUnit\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentResults" Version="3.16.0" />
+    <PackageReference Include="MediatR" Version="12.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EquipmentMonitoring.Contracts\EquipmentMonitoring.Contracts.csproj" />
+    <ProjectReference Include="..\EquipmentMonitoring.Domain\EquipmentMonitoring.Domain.csproj" />
   </ItemGroup>
 
 </Project>

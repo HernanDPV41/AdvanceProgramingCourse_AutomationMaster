@@ -1,0 +1,21 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "EquipmentMonitoring.GrpcProtos";
+
+package GrpcProtos;
+
+
+message GetRequestDTO{
+	string id = 1;
+}
+
+message DeleteRequestDTO{
+	string id = 1;
+}
+
+enum EquipmentStateDTO{
+	Idle = 0;
+	Execution = 1;
+	Faulted = 2;
+}
+

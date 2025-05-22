@@ -1,0 +1,13 @@
+﻿{
+  "profiles": {
+    "EquipmentMonitoring.API": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:5219;https://localhost:7210",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
